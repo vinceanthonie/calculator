@@ -1,82 +1,100 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Calculator</title>
-    <style>
-      /* Calculator styles */
-      #calculator {
-        width: 240px;
-        margin: 0 auto;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        padding: 10px;
-        text-align: center;
-      }
+<head>
+	<title>Calculator</title>
+	<style>
+		body {
+			font-family: sans-serif;
+			text-align: center;
+			background-color: #f2f2f2;
+		}
 
-      #calculator input {
-        width: 50px;
-        height: 50px;
-        font-size: 20px;
-        margin: 5px;
-        background-color: #eee;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-      }
+		#calculator {
+			width: 300px;
+			margin: 50px auto;
+			background-color: #fff;
+			border: 1px solid #ccc;
+			border-radius: 10px;
+			padding: 20px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+		}
 
-      #calculator input:active {
-        background-color: #ccc;
-      }
+		h1 {
+			margin-top: 0;
+			font-size: 36px;
+			color: #333;
+		}
 
-      #calculator #result {
-        font-size: 32px;
-        margin-bottom: 10px;
-        border: none;
-        background-color: #fff;
-        text-align: right;
-        padding: 5px;
-      }
-    </style>
-    <script>
-      // Calculator functions
-      let result = document.getElementById('result');
+		input[type="button"] {
+			width: 50px;
+			height: 50px;
+			margin: 5px;
+			font-size: 20px;
+			background-color: #eee;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+		}
 
-      function appendToResult(value) {
-        result.value += value;
-      }
+		input[type="button"]:active {
+			background-color: #ccc;
+		}
 
-      function clearResult() {
-        result.value = '';
-      }
+		input[type="text"] {
+			width: 100%;
+			height: 50px;
+			margin: 10px 0;
+			font-size: 24px;
+			padding: 5px;
+			text-align: right;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			box-shadow: none;
+			outline: none;
+		}
+	</style>
+</head>
+<body>
+	<div id="calculator">
+		<h1>Calculator</h1>
+		<input type="text" id="result" readonly>
+		<input type="button" value="C" onclick="clearResult()">
+		<input type="button" value="/" onclick="appendToResult('/')">
+		<input type="button" value="*" onclick="appendToResult('*')">
+		<input type="button" value="7" onclick="appendToResult('7')">
+		<input type="button" value="8" onclick="appendToResult('8')">
+		<input type="button" value="9" onclick="appendToResult('9')">
+		<input type="button" value="-" onclick="appendToResult('-')">
+		<input type="button" value="4" onclick="appendToResult('4')">
+		<input type="button" value="5" onclick="appendToResult('5')">
+		<input type="button" value="6" onclick="appendToResult('6')">
+		<input type="button" value="+" onclick="appendToResult('+')">
+		<input type="button" value="1" onclick="appendToResult('1')">
+		<input type="button" value="2" onclick="appendToResult('2')">
+		<input type="button" value="3" onclick="appendToResult('3')">
+		<input type="button" value="=" onclick="calculateResult()">
+		<input type="button" value="0" onclick="appendToResult('0')">
+		<input type="button" value="." onclick="appendToResult('.')">
+	</div>
 
-      function calculateResult() {
-        let expression = result.value;
-        let answer = eval(expression);
-        result.value = answer;
-      }
-    </script>
-  </head>
-  <body>
-    <div id="calculator">
-      <input type="text" id="result" disabled><br>
-      <input type="button" value="C" onclick="clearResult()">
-      <input type="button" value="/" onclick="appendToResult('/')">
-      <input type="button" value="*" onclick="appendToResult('*')">
-      <input type="button" value="7" onclick="appendToResult('7')">
-      <input type="button" value="8" onclick="appendToResult('8')">
-      <input type="button" value="9" onclick="appendToResult('9')">
-      <input type="button" value="-" onclick="appendToResult('-')">
-      <input type="button" value="4" onclick="appendToResult('4')">
-      <input type="button" value="5" onclick="appendToResult('5')">
-      <input type="button" value="6" onclick="appendToResult('6')">
-      <input type="button" value="+" onclick="appendToResult('+')">
-      <input type="button" value="1" onclick="appendToResult('1')">
-      <input type="button" value="2" onclick="appendToResult('2')">
-      <input type="button" value="3" onclick="appendToResult('3')">
-      <input type="button" value="=" onclick="calculateResult()">
-      <input type="button" value="0" onclick="appendToResult('0')">
-      <input type="button" value="." onclick="appendToResult('.')">
-    </div>
-  </body>
+	<script>
+		// Calculator functions
+		let result = document.getElementById('result');
+
+		function appendToResult(value) {
+			result.value += value;
+		}
+
+		function clearResult() {
+			result.value = '';
+		}
+
+		function calculateResult() {
+			let expression = result.value;
+			let answer = eval(expression);
+			result.value = answer;
+		
+    }
+</script>
+</body>
 </html>
